@@ -3,6 +3,7 @@
 
 import sys
 import signal
+import re
 
 def displayTotal():
     print("+" + "-"*(len(sys.argv[0])+2) + "+" + "+".join(["-"*(max(len(str(grid[0][z+1])),len(str(total[z])))+2) for z in range(len(total))]) + "+")
@@ -35,20 +36,13 @@ if __name__ == '__main__':
 
         new_input = input(">>>")
 
-        scores_to_add = list()
-        try:
-            scores_to_add = list(map(int, new_input.split()))
-        except:
-            try:
-                scores_to_add = list(map(int, new_input.split(',')))
-            except:
-                print('You must use commas \',\' or spaces \' \' to separate scores')
-                continue
+        scores_to_add = list(map(int, list(filter(None, re.split('[^\d]', new_input)))))
 
         if len(scores_to_add) == 0:
             continue
         elif len(scores_to_add) != len(total):
             print("Incorrect number of input")
+            print('You must use commas \',\' or spaces \' \' to separate scores')
             continue
         else:
             grid.append(scores_to_add)
