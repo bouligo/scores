@@ -4,6 +4,7 @@
 import sys
 import signal
 import re
+import readline
 
 def displayTotal():
     print("+" + "-"*(len(sys.argv[0])+2) + "+" + "+".join(["-"*(max(len(str(grid[0][z+1])),len(str(total[z])))+2) for z in range(len(total))]) + "+")
