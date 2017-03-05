@@ -42,7 +42,6 @@ if __name__ == '__main__':
             continue
         elif len(scores_to_add) != len(total):
             print("Incorrect number of input")
-            print('You must use commas \',\' or spaces \' \' to separate scores')
             continue
         else:
             grid.append(scores_to_add)
