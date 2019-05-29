@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
         new_input = input(">>>")
 
-        scores_to_add = list(map(int, list(filter(None, re.split('[^\d]', new_input)))))
+        scores_to_add = list(map(int, list(filter(None, re.split('[^\d-]', new_input)))))
 
         if len(scores_to_add) == 0:
             continue
